@@ -1,0 +1,277 @@
+html {
+  	height: 100%;
+	width: 100%;
+}
+
+body, h2 {
+	font-size: 20px;
+	line-height: 20px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #000;
+	text-align: left;
+}
+
+#nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: transparent;
+	z-index: 9999;
+}
+.navhalf {
+	width: 62%;
+	float: right;
+	padding-left: 1%;
+	padding-top: 1.5%;
+	padding-bottom: 20px;
+    list-style: none; /* to remove the bullets */
+    display:inline-block;
+    text-transform: uppercase;
+}
+
+nav:hover {
+	text-decoration: none;
+	color: #000;
+	font-style: italic;
+}
+
+
+#bgcontain {
+	width: 97%;
+	height: 95%;
+	display: block;
+	position: fixed;
+	padding: 1.5% 3% 3% 3%;
+	margin:0;
+	top: 0;
+	left: 0;
+	z-index: -9999;
+}
+.bg1 {
+	background: url(images/bg1.png) no-repeat top left;
+	-webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+	width: 48.5%;
+	height: 100%;
+	float: left;
+}
+.bg2 {
+	background: url(images/bg2.png) no-repeat top left;
+	-webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+	width: 48.5%;
+	height: 100%;
+	float: left;
+}
+
+#container {
+	width: auto;
+	padding: 1.5% 3% 3% 3%;
+	display: flex; /* equal height of the children */
+}
+.photos {
+	width: 48.5%;
+	float: right;
+	padding-right: 1.5%;
+	flex: 1; /* additionally, equal width */
+	margin-top: 160px;
+}
+.text {
+	width: 48.5%;
+	float: right;
+	padding-left: 1.5%;
+	flex: 1; /* additionally, equal width */
+}
+
+#footer {
+	width: 100%;
+	background: transparent;
+	padding-bottom: 30px;
+}
+#footerhalf {
+	width: 48.5%;
+	padding-left: 1.5%;
+	float: right;
+	background: transparent;
+}
+
+/* FORMATING ----------------------- */
+
+p {
+	padding: 0;
+	margin: 0 0 20px 0;
+}
+
+p.imagecredits {
+	font-size: 11px;
+	line-height: 13px;
+	clear: both;
+	float: left;
+}
+
+.blog-post-title {
+	text-transform: uppercase;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+span.spacer {
+   padding:0 0 0 15px;
+}
+
+img.header {
+	width: 100%;
+	padding-bottom: 90px;
+}
+
+img.left {
+	width: 50%;
+	float: left;
+	clear: both;
+	padding-bottom: 30px;
+}
+
+img.right {
+	width: 50%;
+	float: right;
+	clear: both;
+	padding-bottom: 30px;
+}
+
+.cycle-slideshow { 
+	width: 100%; 
+	padding: 0;
+	height: 500px;
+	margin-bottom: 5px;
+}
+.cycle-slideshow img { height: 400px; }
+#custom-caption {font-size: 11px; margin-bottom: 30px;}
+
+/* LINKS -------------------------- */
+
+a:link {
+	text-decoration: none;
+	color: #ccc;
+}
+a:visited {
+	text-decoration: none;
+	color: #ccc;
+}
+a:hover {
+	text-decoration: none;
+	color: #000;
+}
+a:active {
+	text-decoration: none;
+	color: #000;
+}
+
+a.linkitalic:link {
+	text-decoration: none;
+	color: #000;
+}
+a.linkitalic:visited {
+	text-decoration: none;
+	color: #000;
+}
+a.linkitalic:hover {
+	text-decoration: none;
+	color: #000;
+	font-style: italic;
+}
+a.linkitalic:active {
+	text-decoration: none;
+	color: #000;
+	font-style: italic;
+}
+
+/* RESPONSIVE ----------------------------- */
+
+#iheader {
+	display: none;
+}
+
+@media screen and (max-width:640px){
+	html, body {
+		font-size: 15px;
+		line-height: 15px;
+	}
+
+	#iheader {
+		z-index: 9999;
+		display: inline-block;
+		width: 100%;
+		padding: 3%;
+		position: relative;
+		margin-bottom: 30px;
+	}
+
+	img.iheader {
+		width: 100%;
+		z-index: 9999;
+	}
+
+	#bgcontain {display: none;}
+	.bg1 {display: none;}
+	.bg2 {display: none;}
+
+	#nav {
+		background: #fff;
+		z-index: 8888;
+		padding-bottom: 15px;
+	}
+
+	.navhalf {
+		background: transparent;
+		width: 62%;
+		padding-bottom: 0;
+		padding-top: 3%;
+	}
+
+	#container {
+		display: inline-block;
+	}
+
+	.photos {
+		width: 100%;
+		flex: 0;
+		padding: 0 0 30px 0;
+		margin-top: 0;
+	}
+	
+	img.left {
+		width: 100%;
+		float: left;
+		clear:both;
+		padding-bottom: 3%;
+	}
+	img.right {
+		width: 100%;
+		float: left;
+		clear:both;
+		padding-bottom: 3%;
+	}
+
+	.text {
+		width: 100%;
+		flex: 0;
+		margin-top: 0;
+		padding: 0 0 30px 0;
+	}
+
+	#footerhalf {
+		width: 100%;
+		padding: 3%;
+		float: left;
+	}
+
+}
