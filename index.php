@@ -13,40 +13,41 @@
 <link rel="stylesheet" type="text/css" href="normalize.css" />
 <link href="<?php bloginfo('template_directory');?>/style.css" rel="stylesheet">
 
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
 </head>
 
 <body>
-<div id="iheader">
-		<img src="images/321Gallery-h.png" class="iheader">
-</div>
-
-
 <div id="bgcontain">
 	<div class="bg1">&nbsp;</div>
 	<div class="bg2">&nbsp;</div>
 </div>
 
-
 <!-- NAVIGATION -->
 <div id="nav">
 	<div class="navhalf">
-		<a href="/" class="linkitalic">CURRENT</a><?php wp_list_pages( '&title_li='); ?>
+		<a href="/" class="linkitalic">CURRENT</a>
+		<!-- hides child pages -->
+		<?php $output = wp_list_pages( array(
+    	'depth'    => 1,
+    	'title_li' => '' . __( '', 'textdomain' ) . '</h2>'
+		) );?>
 	</div>
 </div>
 
 <div id="container">
-	<section class="photos">
-
+	<section class="photos"> 
+		<img src='<?php echo catch_that_image() ?>'>
 	</section>
 
 	<section class="text">
-			<?php 
-			if ( have_posts() ) : while ( have_posts() ) : the_post();
-  	
-				get_template_part( 'content', get_post_format() );
-  
-			endwhile; endif; 
-			?>
+		<?php 
+		$my_query = new WP_Query( 'category_name=homepage&posts_per_page=1' );
+		while ( $my_query->have_posts() ) : $my_query->the_post();
+		$do_not_duplicate = $post->ID; ?>
+		<?php echo show_post_content() ?>
+		<?php endwhile; ?>
 	</section>
 </div><!-- END Container -->
 
@@ -62,9 +63,4 @@
 </div>
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="http://malsup.github.com/jquery.cycle2.js"></script>
-<script src="http://malsup.github.io/jquery.cycle2.center.js"></script>
-<script src="http://malsup.github.io/jquery.cycle2.swipe.js"></script>
-<script src="http://malsup.github.io/ios6fix.js"></script>
 </html>
